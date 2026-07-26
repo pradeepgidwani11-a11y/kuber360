@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Brand Colors */
+  --color-navy: #081C3A;
+  --color-navy-mid: #0F2B52;
+  --color-navy-dark: #050F20;
+  --color-orange: #FF7A00;
+  --color-orange-light: #FF9A40;
+  --color-whatsapp: #25D366;
+
+  /* Surface / Background */
+  --color-surface: #F8FAFC;
+  --color-surface-alt: #F7F9FC;
+  --color-card: #FFFFFF;
+
+  /* Text */
+  --color-text-head: #081C3A;
+  --color-text-body: #5B6B84;
+  --color-text-muted: #8B97AA;
+
+  /* Text on dark */
+  --color-text-dark-head: #FFFFFF;
+  --color-text-dark-body: #B9C4D6;
+  --color-text-dark-muted: #8FA1BE;
+
+  /* Border */
+  --color-border: #E7ECF3;
+
+  /* Status */
+  --color-success: #00C851;
+  --color-error: #D2483F;
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Border radius */
+  --radius-card: 12px;
+  --radius-sm: 8px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-surface);
+    color: var(--color-text-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-text-head);
+    text-wrap: balance;
+    font-weight: 700;
+  }
+}

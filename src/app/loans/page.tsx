@@ -1,0 +1,96 @@
+﻿import type { Metadata } from "next";
+import PageHero from "@/components/ui/PageHero";
+import SectionHeader from "@/components/ui/SectionHeader";
+import SectionCTA from "@/components/ui/SectionCTA";
+import WhyChooseGrid from "@/components/ui/WhyChooseGrid";
+import ProcessSteps from "@/components/ui/ProcessSteps";
+import FAQAccordion from "@/components/ui/FAQAccordion";
+import TestimonialCard from "@/components/ui/TestimonialCard";
+import { LOAN_CATEGORIES, LOAN_ELIGIBILITY, LOAN_DOCS_SALARIED, LOAN_DOCS_SELF_EMPLOYED, LOAN_PROCESS_STEPS, LOAN_FAQS, WHY_CHOOSE_LOANS, TESTIMONIALS, PAGE_HEROES, waLinkFor } from "@/lib/data";
+
+export const metadata: Metadata = { title: "Loan Products", description: "Personal, Business, Home, Car, Education and MSME loans with expert guidance from KUBER360." };
+const h = PAGE_HEROES.loans;
+
+export default function LoansPage() {
+  return (
+    <>
+      <PageHero {...h} primaryLabel="Check Eligibility" secondaryLabel="Talk to a Loan Expert" secondaryHref={waLinkFor("Loans")} />
+      <section className="py-16 lg:py-24" style={{ background: "var(--color-surface)" }}>
+        <div className="max-w-7xl mx-auto px-4 lg:px-6">
+          <SectionHeader tag="Loan Products" title="Choose the Right" highlight="Loan for You" center />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {LOAN_CATEGORIES.map((loan) => (
+              <div key={loan.title} className="rounded-2xl bg-white p-6 flex flex-col" style={{ border: "1px solid var(--color-border)" }}>
+                <span className="text-3xl mb-3">{loan.icon}</span>
+                <h3 className="font-black text-lg mb-2" style={{ color: "var(--color-text-head)" }}>{loan.title}</h3>
+                <p className="text-sm leading-relaxed flex-1 mb-4" style={{ color: "var(--color-text-body)" }}>{loan.desc}</p>
+                <div className="flex items-center gap-2 mb-4">
+                  <span className="text-xs px-2.5 py-1 rounded font-semibold" style={{ background: "rgba(0,200,81,0.1)", color: "var(--color-success)" }}>Approval in {loan.time}</span>
+                </div>
+                <a href={waLinkFor(loan.title)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-4 py-2.5 rounded-lg text-sm font-bold text-white transition-opacity hover:opacity-90" style={{ background: "var(--color-orange)" }}>{loan.ctaLabel}</a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="py-16 lg:py-24" style={{ background: "var(--color-navy)" }}>
+        <div className="max-w-7xl mx-auto px-4 lg:px-6">
+          <SectionHeader tag="Why KUBER360" title="Why Get Your Loan" highlight="Through Us?" center light />
+          <WhyChooseGrid items={WHY_CHOOSE_LOANS} light />
+        </div>
+      </section>
+      <section className="py-16 lg:py-24" style={{ background: "#fff" }}>
+        <div className="max-w-7xl mx-auto px-4 lg:px-6">
+          <SectionHeader tag="Eligibility" title="Basic Loan" highlight="Eligibility Criteria" center />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {LOAN_ELIGIBILITY.map((el) => (
+              <div key={el.title} className="flex items-start gap-4 rounded-xl p-5" style={{ background: "var(--color-surface)", border: "1px solid var(--color-border)" }}>
+                <span className="text-2xl flex-shrink-0">{el.icon}</span>
+                <div>
+                  <div className="font-bold text-sm mb-1" style={{ color: "var(--color-text-head)" }}>{el.title}</div>
+                  <div className="text-sm" style={{ color: "var(--color-text-body)" }}>{el.desc}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="py-16 lg:py-20" style={{ background: "var(--color-surface)" }}>
+        <div className="max-w-7xl mx-auto px-4 lg:px-6">
+          <SectionHeader tag="Documents Required" title="What Documents" highlight="Do You Need?" center />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+            {[{ label: "For Salaried Individuals", docs: LOAN_DOCS_SALARIED }, { label: "For Self-Employed / Business", docs: LOAN_DOCS_SELF_EMPLOYED }].map(({ label, docs }) => (
+              <div key={label} className="rounded-2xl bg-white p-6" style={{ border: "1px solid var(--color-border)" }}>
+                <h4 className="font-bold text-base mb-4" style={{ color: "var(--color-text-head)" }}>{label}</h4>
+                <ul className="flex flex-col gap-2">
+                  {docs.map((doc) => (<li key={doc} className="flex items-center gap-2 text-sm" style={{ color: "var(--color-text-body)" }}><span style={{ color: "var(--color-success)" }}>checkmark</span> {doc}</li>))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="py-16 lg:py-24" style={{ background: "#fff" }}>
+        <div className="max-w-7xl mx-auto px-4 lg:px-6">
+          <SectionHeader tag="Our Process" title="How We Get Your" highlight="Loan Approved" center />
+          <ProcessSteps steps={LOAN_PROCESS_STEPS} />
+        </div>
+      </section>
+      <section className="py-16 lg:py-24" style={{ background: "var(--color-navy-dark)" }}>
+        <div className="max-w-7xl mx-auto px-4 lg:px-6">
+          <SectionHeader tag="Client Stories" title="What Our Loan" highlight="Clients Say" center light />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {TESTIMONIALS.map((t) => <TestimonialCard key={t.name} {...t} light />)}
+          </div>
+        </div>
+      </section>
+      <section className="py-16 lg:py-24" style={{ background: "var(--color-surface)" }}>
+        <div className="max-w-4xl mx-auto px-4 lg:px-6">
+          <SectionHeader tag="FAQs" title="Frequently Asked" highlight="Questions" center />
+          <FAQAccordion faqs={LOAN_FAQS} />
+        </div>
+      </section>
+      <SectionCTA title="Ready to Apply for a Loan?" sub="Our loan experts are ready to help you get the best rate from 50+ banking partners." primaryLabel="Check Loan Eligibility" primaryHref="/contact" secondaryLabel="WhatsApp a Loan Expert" secondaryHref={waLinkFor("Loan")} />
+    </>
+  );
+}
