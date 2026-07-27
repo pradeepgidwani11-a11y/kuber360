@@ -192,7 +192,7 @@ export default function Header() {
           </Link>
 
           <nav
-            className="hidden xl:flex"
+            className="hidden lg:flex"
             style={{ alignItems: 'center', gap: 9, flexWrap: 'nowrap', whiteSpace: 'nowrap' }}
           >
             {NAV_LINKS.map(({ label, href }) => (
@@ -228,7 +228,7 @@ export default function Header() {
               Get Free Consultation
             </a>
             <button
-              className="xl:hidden p-2 rounded-md"
+              className="lg:hidden p-2 rounded-md"
               style={{ color: 'rgb(198,208,224)', background: 'none', border: 'none', cursor: 'pointer' }}
               onClick={() => setMobileOpen(v => !v)}
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
@@ -242,7 +242,7 @@ export default function Header() {
         {/* ── Mobile dropdown ────────────────────────────── */}
         {mobileOpen && (
           <div
-            className="xl:hidden"
+            className="lg:hidden"
             style={{ background: 'rgb(8,28,58)', borderTop: '1px solid rgba(255,255,255,0.08)' }}
           >
             <nav className="px-4 py-3 flex flex-col gap-1">

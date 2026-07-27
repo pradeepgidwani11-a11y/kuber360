@@ -115,15 +115,15 @@ export const SERVICES_CATEGORIES = [
 
 // Loans page
 export const LOAN_CATEGORIES = [
-  { icon: '💳', title: 'Personal Loan', desc: 'Quick unsecured loans for medical, travel, education or personal needs.', time: '24-48 hrs', ctaLabel: 'Check Eligibility' },
-  { icon: '🏢', title: 'Business Loan', desc: 'Business expansion, working capital and growth financing.', time: '3-5 days', ctaLabel: 'Talk to a Loan Expert' },
-  { icon: '🏠', title: 'Home Loan', desc: 'Purchase your dream home with expert guidance.', time: '7-10 days', ctaLabel: 'Check Eligibility' },
-  { icon: '🏡', title: 'Loan Against Property', desc: 'Unlock the value of your residential or commercial property.', time: '5-7 days', ctaLabel: 'Talk to a Loan Expert' },
-  { icon: '🏭', title: 'MSME Loan', desc: 'Funding solutions for Micro, Small and Medium Enterprises.', time: '3-5 days', ctaLabel: 'Check Eligibility' },
-  { icon: '📈', title: 'Working Capital Loan', desc: 'Maintain healthy business cash flow.', time: '3-5 days', ctaLabel: 'Talk to a Loan Expert' },
-  { icon: '🎓', title: 'Education Loan', desc: 'Finance higher education in India and abroad.', time: '5-7 days', ctaLabel: 'Check Eligibility' },
-  { icon: '🚗', title: 'Car Loan', desc: 'Finance new and pre-owned vehicles.', time: '24-48 hrs', ctaLabel: 'Check Eligibility' },
-  { icon: '👨‍⚕️', title: 'Professional Loan', desc: 'Exclusive funding solutions for Doctors, CAs, Architects and other professionals.', time: '3-5 days', ctaLabel: 'Talk to a Loan Expert' },
+  { icon: '💳', title: 'Personal Loan', desc: 'Quick unsecured loans for medical, travel, education or personal needs.', time: '24-48 hrs', ctaLabel: 'View Details' },
+  { icon: '🏢', title: 'Business Loan', desc: 'Business expansion, working capital and growth financing.', time: '3-5 days', ctaLabel: 'Explore Loan' },
+  { icon: '🏠', title: 'Home Loan', desc: 'Purchase your dream home with expert guidance.', time: '7-10 days', ctaLabel: 'Know More' },
+  { icon: '🏡', title: 'Loan Against Property', desc: 'Unlock the value of your residential or commercial property.', time: '5-7 days', ctaLabel: 'Explore LAP' },
+  { icon: '🏭', title: 'MSME Loan', desc: 'Funding solutions for Micro, Small and Medium Enterprises.', time: '3-5 days', ctaLabel: 'View MSME Loans' },
+  { icon: '📈', title: 'Working Capital Loan', desc: 'Maintain healthy business cash flow.', time: '3-5 days', ctaLabel: 'View Details' },
+  { icon: '🎓', title: 'Education Loan', desc: 'Finance higher education in India and abroad.', time: '5-7 days', ctaLabel: 'Know More' },
+  { icon: '🚗', title: 'Car Loan', desc: 'Finance new and pre-owned vehicles.', time: '24-48 hrs', ctaLabel: 'Explore' },
+  { icon: '👨‍⚕️', title: 'Professional Loan', desc: 'Exclusive funding solutions for Doctors, CAs, Architects and other professionals.', time: '3-5 days', ctaLabel: 'View Options' },
 ];
 
 export const LOAN_ELIGIBILITY = [

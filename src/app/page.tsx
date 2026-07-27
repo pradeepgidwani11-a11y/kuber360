@@ -23,72 +23,69 @@ export default function HomePage() {
   return (
     <>
       {/* ─── HERO ─────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden" style={{ minHeight: 560 }}>
-        {/* Background image — z-index 1 */}
-        <div className="absolute inset-0" style={{ zIndex: 1 }}>
+      <section className="relative overflow-hidden flex flex-col" style={{ minHeight: 480 }}>
+        {/* Background image */}
+        <div className="absolute inset-0">
           <Image src="/assets/hero-cover-photo.jpeg" alt="" fill className="object-cover object-center" priority />
         </div>
 
-        {/* Content — z-index 2 */}
-        <div className="relative" style={{ zIndex: 2 }}>
-          <div className="max-w-full px-4 lg:px-15 pt-24 lg:pt-32 pb-12 lg:pb-16">
-            <div className="max-w-full">
-              {/* Heading: 3 separate lines */}
-              <div className="font-black leading-tight text-white" style={{ fontSize: 'clamp(26px, 4vw, 38px)', lineHeight: 1.15 }}>
-                One Stop Solution For
-              </div>
-              <div className="font-black leading-tight text-white" style={{ fontSize: 'clamp(26px, 4vw, 38px)', lineHeight: 1.15 }}>
-                All Your
-              </div>
-              <div className="font-black leading-tight" style={{ fontSize: 'clamp(26px, 4vw, 38px)', lineHeight: 1.15, color: 'var(--color-orange)', marginTop: 2 }}>
-                Financial Needs
-              </div>
+        {/* Content */}
+        <div className="relative flex-1 px-4 lg:px-15 pt-24 lg:pt-32 pb-6 lg:pb-10">
+          <div className="max-w-xl">
+            <div className="font-black leading-tight text-white" style={{ fontSize: 'clamp(30px, 3.2vw, 44px)', lineHeight: 1.12 }}>
+              One Stop Solution For
+            </div>
+            <div className="font-black leading-tight text-white" style={{ fontSize: 'clamp(30px, 3.2vw, 44px)', lineHeight: 1.12 }}>
+              All Your
+            </div>
+            <div className="font-black leading-tight" style={{ fontSize: 'clamp(30px, 3.2vw, 44px)', lineHeight: 1.12, color: 'var(--color-orange)' }}>
+              Financial Needs
+            </div>
 
-              <p className="mt-4 leading-relaxed" style={{ color: 'rgb(220, 228, 240)', fontSize: 16, maxWidth: 460 }}>
-                Loans, Credit Cards, Insurance, Investments, Tax &amp; GST, Business Registration and Financial Advisory under one roof.
-              </p>
+            <p className="mt-5 leading-relaxed" style={{ color: 'rgb(220, 228, 240)', fontSize: 15.5, maxWidth: 480 }}>
+              Loans, Credit Cards, Insurance, Investments, Tax &amp; GST, Business Registration and Financial Advisory under one roof.
+            </p>
 
-              <div className="flex flex-wrap gap-3 mt-7">
-                <a
-                  href={GENERAL_WA_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 font-extrabold text-white transition-opacity hover:opacity-90"
-                  style={{ background: 'var(--color-orange)', padding: '14px 22px', borderRadius: 10, fontSize: 13.5 }}
-                >
-                  Get Free Consultation
-                </a>
-                <a
-                  href={`https://wa.me/918742019250?text=${encodeURIComponent('Hi! I would like to request a callback for financial guidance.')}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 font-bold text-white transition-colors hover:bg-white/10"
-                  style={{ background: 'transparent', border: '1.5px solid rgba(255,255,255,0.5)', padding: '14px 22px', borderRadius: 10, fontSize: 13.5 }}
-                >
-                  📞 Request a Callback
-                </a>
-              </div>
-
-              {/* Stats — frosted glass cards inline in hero */}
-              <div style={{width:'100%', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 14, marginTop: 32 }}>
-                {HERO_STATS.map((s) => (
-                  <div
-                    key={s.label}
-                    style={{
-                      background: 'rgba(255,255,255,0.08)',
-                      backdropFilter: 'blur(6px)',
-                      border: '1px solid rgba(255,255,255,0.15)',
-                      borderRadius: 12,
-                      padding: '14px 16px',
-                    }}
-                  >
-                    <div className="font-black" style={{ color: 'var(--color-orange)', fontSize: 20 }}>{s.value}</div>
-                    <div className="font-medium" style={{ color: 'rgb(220, 228, 240)', fontSize: 13, marginTop: 2 }}>{s.label}</div>
-                  </div>
-                ))}
-              </div>
+            <div className="flex flex-wrap gap-3 mt-7">
+              <a
+                href={GENERAL_WA_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 font-extrabold text-white transition-opacity hover:opacity-90"
+                style={{ background: 'var(--color-orange)', padding: '14px 26px', borderRadius: 8, fontSize: 14 }}
+              >
+                Get Free Consultation
+              </a>
+              <a
+                href={`https://wa.me/918742019250?text=${encodeURIComponent('Hi! I would like to request a callback for financial guidance.')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 font-bold text-white transition-colors hover:bg-white/10"
+                style={{ background: 'transparent', border: '1.5px solid rgba(255,255,255,0.55)', padding: '14px 26px', borderRadius: 8, fontSize: 14 }}
+              >
+                📞 Request a Callback
+              </a>
             </div>
           </div>
+        </div>
+
+        {/* Stats — full-width blocks pinned to bottom of hero */}
+        <div className="relative" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)' }}>
+          {HERO_STATS.map((s, i) => (
+            <div
+              key={s.label}
+              style={{
+                background: 'rgba(0,0,0,0.52)',
+                backdropFilter: 'blur(4px)',
+                borderTop: '1px solid rgba(255,255,255,0.1)',
+                borderRight: i < 3 ? '1px solid rgba(255,255,255,0.1)' : 'none',
+                padding: '18px 20px',
+              }}
+            >
+              <div className="font-black" style={{ color: 'var(--color-orange)', fontSize: 'clamp(22px, 3vw, 32px)', lineHeight: 1 }}>{s.value}</div>
+              <div className="font-medium" style={{ color: 'rgb(200, 215, 235)', fontSize: 13, marginTop: 4 }}>{s.label}</div>
+            </div>
+          ))}
         </div>
       </section>
 

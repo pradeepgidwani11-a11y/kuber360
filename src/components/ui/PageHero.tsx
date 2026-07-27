@@ -39,7 +39,7 @@ export default function PageHero({
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 mb-6 text-sm" style={{ color: 'var(--color-text-dark-muted)' }}>
           <Link href="/" className="hover:text-white transition-colors">Home</Link>
-          <span>/</span>
+          <span>›</span>
           <span style={{ color: 'var(--color-orange)' }}>{crumb}</span>
         </div>
 

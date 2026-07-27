@@ -38,7 +38,7 @@ export default function WhyUsPage() {
                 </tr>
               </thead>
               <tbody>
-                {VS_COMPARISON.map((row, i) => (<tr key={row.feature} style={{ background: i % 2 === 0 ? "rgba(255,255,255,0.04)" : "rgba(255,255,255,0.02)" }}><td className="px-4 py-3 font-semibold text-white">{row.feature}</td><td className="px-4 py-3 text-center" style={{ color: "var(--color-text-dark-muted)" }}>{row.traditional}</td><td className="px-4 py-3 text-center font-semibold" style={{ color: "#4ade80" }}>check {row.kuber}</td></tr>))}
+                {VS_COMPARISON.map((row, i) => (<tr key={row.feature} style={{ background: i % 2 === 0 ? "rgba(255,255,255,0.04)" : "rgba(255,255,255,0.02)" }}><td className="px-4 py-3 font-semibold text-white">{row.feature}</td><td className="px-4 py-3 text-center" style={{ color: "var(--color-text-dark-muted)" }}>{row.traditional}</td><td className="px-4 py-3 text-center font-semibold" style={{ color: "#4ade80" }}>✓ {row.kuber}</td></tr>))}
               </tbody>
             </table>
           </div>

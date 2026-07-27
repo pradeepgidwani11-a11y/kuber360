@@ -88,7 +88,7 @@ export default function CreditCardsPage() {
               <div key={label} className="rounded-2xl bg-white p-6" style={{ border: "1px solid var(--color-border)" }}>
                 <h4 className="font-bold text-base mb-4" style={{ color: "var(--color-text-head)" }}>{label} Documents</h4>
                 <ul className="flex flex-col gap-2">
-                  {docs.map((doc) => (<li key={doc} className="flex items-center gap-2 text-sm" style={{ color: "var(--color-text-body)" }}><span style={{ color: "var(--color-success)" }}>checkmark</span> {doc}</li>))}
+                  {docs.map((doc) => (<li key={doc} className="flex items-center gap-2 text-sm" style={{ color: "var(--color-text-body)" }}><span style={{ color: "var(--color-orange)" }}>✓</span> {doc}</li>))}
                 </ul>
               </div>
             ))}

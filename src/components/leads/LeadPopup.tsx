@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 import { useLeadPopup } from './LeadContext';
 import { hasDuplicateLead, submitLead } from '@/lib/leads';
+import { collectClientMeta } from '@/lib/clientMeta';
 import { LEAD_SERVICE_OPTIONS } from '@/lib/data';
 
 const SESSION_KEY = 'kb_popup_shown';
@@ -13,7 +14,7 @@ type Step = 'form' | 'submitting' | 'success' | 'error';
 export default function LeadPopup() {
   const { isOpen, closePopup, popupSource } = useLeadPopup();
   const [step, setStep] = useState<Step>('form');
-  const [form, setForm] = useState({ name: '', mobile: '', city: '', service: '' });
+  const [form, setForm] = useState({ name: '', mobile: '', city: '', service: '', message: '' });
   const [mobileError, setMobileError] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
 
@@ -21,7 +22,7 @@ export default function LeadPopup() {
   useEffect(() => {
     if (isOpen) {
       setStep('form');
-      setForm({ name: '', mobile: '', city: '', service: '' });
+      setForm({ name: '', mobile: '', city: '', service: '', message: '' });
       setMobileError('');
       setErrorMsg('');
     }
@@ -55,17 +56,20 @@ export default function LeadPopup() {
         return;
       }
 
+      const meta = await collectClientMeta();
       await submitLead({
         name: form.name,
         mobile: form.mobile,
         city: form.city,
         service: form.service,
         source: popupSource,
+        meta,
       });
 
       setStep('success');
       sessionStorage.setItem(SESSION_KEY, '1');
-    } catch {
+    } catch (err) {
+      console.error('[LeadPopup] submission error:', err);
       setErrorMsg('Something went wrong. Please try WhatsApp instead.');
       setStep('error');
     }
@@ -98,16 +102,16 @@ export default function LeadPopup() {
           <div className="px-6 pt-6 pb-4 flex items-start justify-between" style={{ background: 'var(--color-navy)' }}>
             <div>
               <div
-                className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest px-2.5 py-1 rounded mb-2"
-                style={{ background: 'rgba(255,122,0,0.2)', color: 'var(--color-orange)' }}
+                className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest mb-2"
+                style={{ color: 'var(--color-orange)' }}
               >
-                🎁 Free Consultation
+                FREE CONSULTATION
               </div>
               <h2 className="font-black text-xl text-white leading-snug">
-                Get Expert Financial<br />Guidance — Free!
+                Get a Free Consultation
               </h2>
-              <p className="text-xs mt-1" style={{ color: 'var(--color-text-dark-muted)' }}>
-                Our advisor will call you within 30 minutes
+              <p className="text-sm mt-1" style={{ color: 'var(--color-text-dark-muted)' }}>
+                Share a few details and our financial expert will reach out to you shortly.
               </p>
             </div>
             <button
@@ -128,7 +132,7 @@ export default function LeadPopup() {
                   <input
                     type="text"
                     required
-                    placeholder="Your full name *"
+                    placeholder="Full Name *"
                     value={form.name}
                     onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
                     className="w-full rounded-lg px-4 py-3 text-sm outline-none"
@@ -139,7 +143,7 @@ export default function LeadPopup() {
                   <input
                     type="tel"
                     required
-                    placeholder="Mobile number (10 digits) *"
+                    placeholder="Mobile Number *"
                     value={form.mobile}
                     onChange={e => handleMobileChange(e.target.value)}
                     maxLength={10}
@@ -157,7 +161,7 @@ export default function LeadPopup() {
                 <div>
                   <input
                     type="text"
-                    placeholder="Your city"
+                    placeholder="City"
                     value={form.city}
                     onChange={e => setForm(f => ({ ...f, city: e.target.value }))}
                     className="w-full rounded-lg px-4 py-3 text-sm outline-none"
@@ -175,22 +179,29 @@ export default function LeadPopup() {
                       color: form.service ? 'var(--color-text-head)' : 'var(--color-text-muted)',
                     }}
                   >
-                    <option value="">I need help with...</option>
+                    <option value="">Service Required</option>
                     {LEAD_SERVICE_OPTIONS.map(opt => (
                       <option key={opt} value={opt}>{opt}</option>
                     ))}
                   </select>
+                </div>
+                <div>
+                  <textarea
+                    placeholder="Message (optional)"
+                    value={form.message}
+                    onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
+                    rows={3}
+                    className="w-full rounded-lg px-4 py-3 text-sm outline-none resize-none"
+                    style={{ border: '1.5px solid var(--color-border)', background: 'var(--color-surface)', color: 'var(--color-text-head)' }}
+                  />
                 </div>
                 <button
                   type="submit"
                   className="w-full py-3.5 rounded-lg font-bold text-white text-sm transition-opacity hover:opacity-90 mt-1"
                   style={{ background: 'var(--color-orange)' }}
                 >
-                  Request Free Callback →
+                  Submit Inquiry
                 </button>
-                <p className="text-xs text-center" style={{ color: 'var(--color-text-muted)' }}>
-                  No spam. Our advisor calls within 30 min (Mon–Sat, 9:30 AM–7 PM).
-                </p>
               </form>
             )}
 

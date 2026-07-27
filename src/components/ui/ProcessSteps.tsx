@@ -8,7 +8,7 @@ export default function ProcessSteps({ steps, light = false }: ProcessStepsProps
         <div key={i} className="relative flex flex-col items-center text-center p-4 rounded-xl" style={{ background: light ? 'rgba(255,255,255,0.06)' : 'var(--color-surface)', border: `1px solid ${light ? 'rgba(255,255,255,0.08)' : 'var(--color-border)'}` }}>
           <div
             className="w-10 h-10 rounded-full flex items-center justify-center font-black text-sm mb-3"
-            style={{ background: 'var(--color-orange)', color: '#fff' }}
+            style={{ background: 'var(--color-navy)', color: 'var(--color-orange)' }}
           >
             {s.num}
           </div>

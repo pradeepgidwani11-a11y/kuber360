@@ -10,6 +10,7 @@ import {
   doc,
 } from 'firebase/firestore';
 import { getDb } from './firebase';
+import type { ClientMeta } from './clientMeta';
 
 export interface Lead {
   id?: string;
@@ -21,6 +22,7 @@ export interface Lead {
   source: string; // 'popup' | 'contact-form' | 'whatsapp-cta'
   status: LeadStatus;
   createdAt: Timestamp;
+  meta?: ClientMeta;
 }
 
 export type LeadStatus = 'New' | 'Contacted' | 'Interested' | 'Processing' | 'Completed' | 'Closed';
@@ -33,18 +35,21 @@ const LEADS_COLLECTION = 'leads';
 
 /** Check if this mobile number submitted a lead in the last 24 hours */
 export async function hasDuplicateLead(mobile: string): Promise<boolean> {
-  const since = new Date(Date.now() - 24 * 60 * 60 * 1000);
-  // Single-field query only — avoids needing a composite index
-  const q = query(
-    collection(getDb(), LEADS_COLLECTION),
-    where('mobile', '==', mobile),
-  );
-  const snap = await getDocs(q);
-  // Filter the 24-hour window on the client side
-  return snap.docs.some(d => {
-    const ts = d.data().createdAt;
-    return ts?.toDate() >= since;
-  });
+  try {
+    const since = new Date(Date.now() - 24 * 60 * 60 * 1000);
+    const q = query(
+      collection(getDb(), LEADS_COLLECTION),
+      where('mobile', '==', mobile),
+    );
+    const snap = await getDocs(q);
+    return snap.docs.some(d => {
+      const ts = d.data().createdAt;
+      return ts?.toDate() >= since;
+    });
+  } catch {
+    // Rules block client reads — skip duplicate check, allow submission
+    return false;
+  }
 }
 
 /** Submit a new lead to Firestore and optionally ping the Google Apps Script webhook */

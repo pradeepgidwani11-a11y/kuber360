@@ -59,7 +59,7 @@ export default function TaxGSTPage() {
         <div className="max-w-3xl mx-auto px-4 lg:px-6 text-center">
           <SectionHeader tag="Documents" title="Documents" highlight="Required for ITR" center />
           <div className="flex flex-wrap justify-center gap-3">
-            {TAX_DOCS.map((doc) => (<span key={doc} className="px-4 py-2 rounded-full text-sm font-medium" style={{ background: "var(--color-surface)", border: "1px solid var(--color-border)", color: "var(--color-text-body)" }}>checkmark {doc}</span>))}
+            {TAX_DOCS.map((doc) => (<span key={doc} className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium" style={{ background: "var(--color-surface)", border: "1px solid var(--color-border)", color: "var(--color-text-body)" }}><span style={{ color: "var(--color-orange)" }}>✓</span> {doc}</span>))}
           </div>
         </div>
       </section>
