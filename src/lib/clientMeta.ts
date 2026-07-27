@@ -62,5 +62,8 @@ export async function collectClientMeta(): Promise<ClientMeta> {
     // IP fetch is best-effort
   }
 
-  return meta;
+  // Firestore rejects undefined values — strip them out
+  return Object.fromEntries(
+    Object.entries(meta).filter(([, v]) => v !== undefined)
+  ) as ClientMeta;
 }
