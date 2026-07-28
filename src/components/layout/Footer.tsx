@@ -16,7 +16,6 @@ const SERVICES_LINKS = [
   { label: 'Investments', href: '/investments' },
   { label: 'Tax & GST', href: '/tax-gst' },
   { label: 'Business Services', href: '/services' },
-  { label: 'Banking Services', href: '/services' },
 ];
 
 const SOCIAL_ITEMS = [
@@ -38,7 +37,7 @@ export default function Footer() {
 
       {/* Main Footer Grid */}
       <div className="max-w-7xl mx-auto px-4 lg:px-10" style={{ paddingTop: 48, paddingBottom: 48 }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1.6fr 1fr 1fr 1fr 1fr', gap: 24 }} className="flex flex-col sm:grid">
+        <div style={{ gap: 24 }} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
 
           {/* Column 1 — Company */}
           <div>
@@ -97,7 +96,7 @@ export default function Footer() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
               <div style={{ color: 'rgb(185,196,214)', fontSize: 12.5 }}>📞 +91 87420 19250</div>
               <div style={{ color: 'rgb(185,196,214)', fontSize: 12.5 }}>✉️ info@kuber360.in</div>
-              <div style={{ color: 'rgb(185,196,214)', fontSize: 12.5, lineHeight: 1.5 }}>📍 Vaishali Nagar, Jaipur, Rajasthan - 302021</div>
+              <div style={{ color: 'rgb(185,196,214)', fontSize: 12.5, lineHeight: 1.5 }}>📍 Jaipur, Rajasthan</div>
               <div style={{ color: 'rgb(185,196,214)', fontSize: 12.5 }}>🕒 Mon - Sat: 10:00 AM - 7:00 PM</div>
             </div>
           </div>

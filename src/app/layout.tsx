@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>
+      <body style={{ overflowX: 'hidden' }}>
         <LeadProvider>
           <Header />
           {/* pt-16 = mobile nav height, lg:pt-[104px] = utility bar (36px) + nav (68px) */}
