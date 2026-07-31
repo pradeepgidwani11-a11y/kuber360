@@ -65,7 +65,7 @@ export async function submitLead(data: Omit<Lead, 'id' | 'createdAt' | 'status'>
   // Fire-and-forget webhook to Google Apps Script (Sheets + email)
   const webhookUrl = process.env.NEXT_PUBLIC_GAS_WEBHOOK_URL;
   if (webhookUrl) {
-    fetch(webhookUrl, {
+    fetch('/api/webhook/leads', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ id: docRef.id, ...lead, createdAt: new Date().toISOString() }),
