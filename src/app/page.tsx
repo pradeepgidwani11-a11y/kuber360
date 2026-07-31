@@ -14,9 +14,16 @@ import SectionHeader from '@/components/ui/SectionHeader';
 import TestimonialCard from '@/components/ui/TestimonialCard';
 
 export const metadata: Metadata = {
-  title: 'KUBER360 Financial Services — Loans, Insurance, Investments & More',
+  title: 'KUBER360 Financial Services — Loans, Insurance, Investments & More in Jaipur',
   description:
-    'Your trusted DSA partner for loans, credit cards, insurance, investments, and tax services in India. Get expert guidance and a free consultation today.',
+    'KUBER360 is Jaipur\'s trusted DSA partner for home loans, personal loans, business loans, credit cards, insurance, mutual funds, and tax services. 5000+ clients. Free consultation.',
+  alternates: { canonical: 'https://kuber360.in' },
+  openGraph: {
+    title: 'KUBER360 Financial Services — One Stop Financial Solution in Jaipur',
+    description: 'Loans, Credit Cards, Insurance, Investments, Tax & GST — all under one roof. 5000+ happy clients. 50+ banking partners. Free consultation.',
+    url: 'https://kuber360.in',
+    images: [{ url: '/assets/kuber360-og.jpg', width: 1200, height: 630, alt: 'KUBER360 Financial Services' }],
+  },
 };
 
 export default function HomePage() {

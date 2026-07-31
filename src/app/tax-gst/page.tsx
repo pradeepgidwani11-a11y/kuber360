@@ -7,13 +7,27 @@ import ProcessSteps from "@/components/ui/ProcessSteps";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import TestimonialCard from "@/components/ui/TestimonialCard";
 import { TAX_SERVICES, TAX_PROCESS_STEPS, TAX_WHO_CAN_BENEFIT, TAX_DOCS, TAX_FAQS, TAX_STATS, TAX_TESTIMONIALS, WHY_CHOOSE_TAX, PAGE_HEROES, waLinkFor } from "@/lib/data";
+import FaqSchema from "@/components/seo/FaqSchema";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
-export const metadata: Metadata = { title: "Tax & GST Services", description: "ITR filing, GST registration, TDS, MSME registration and tax planning with expert CA assistance from KUBER360." };
+export const metadata: Metadata = {
+  title: 'Tax & GST Services in Jaipur — ITR Filing, GST Registration | KUBER360',
+  description: 'Expert ITR filing, GST registration, GST filing, TDS return, and MSME registration in Jaipur. CA-assisted tax planning for individuals and businesses. Affordable fees. KUBER360.',
+  alternates: { canonical: 'https://kuber360.in/tax-gst' },
+  openGraph: {
+    title: 'Tax & GST Services in Jaipur — ITR Filing & GST Registration | KUBER360',
+    description: 'CA-assisted ITR filing, GST registration, and tax planning in Jaipur. Affordable and reliable.',
+    url: 'https://kuber360.in/tax-gst',
+    images: [{ url: '/assets/kuber360-og.jpg', width: 1200, height: 630, alt: 'Tax & GST Services Jaipur — KUBER360' }],
+  },
+};
 const h = PAGE_HEROES["tax-gst"];
 
 export default function TaxGSTPage() {
   return (
     <>
+      <FaqSchema faqs={TAX_FAQS} />
+      <BreadcrumbSchema crumbs={[{ name: 'Home', url: 'https://kuber360.in' }, { name: 'Tax & GST', url: 'https://kuber360.in/tax-gst' }]} />
       <PageHero {...h} primaryLabel="Book Tax Expert" secondaryLabel="WhatsApp Tax Expert" secondaryHref={waLinkFor("Tax & GST")} />
       <section style={{ background: "var(--color-navy-dark)" }}>
         <div className="max-w-7xl mx-auto px-4 lg:px-6 py-8 grid grid-cols-2 lg:grid-cols-4 gap-6">

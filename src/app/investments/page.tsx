@@ -7,13 +7,27 @@ import ProcessSteps from "@/components/ui/ProcessSteps";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import TestimonialCard from "@/components/ui/TestimonialCard";
 import { INVESTMENT_CATEGORIES, INVESTMENT_PROCESS_STEPS, INVESTMENT_SOLUTIONS, INVESTMENT_CALCULATORS, INVESTMENT_STATS, INVESTMENT_FAQS, INVESTMENT_TESTIMONIALS, WHY_CHOOSE_INVESTMENTS, PAGE_HEROES, waLinkFor } from "@/lib/data";
+import FaqSchema from "@/components/seo/FaqSchema";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
-export const metadata: Metadata = { title: "Investments", description: "Mutual funds, SIP, FD, NPS and wealth management — grow your wealth with expert investment guidance from KUBER360." };
+export const metadata: Metadata = {
+  title: 'Investments in Jaipur — Mutual Funds, SIP, FD & NPS | KUBER360',
+  description: 'Start investing in mutual funds, SIP, fixed deposits, NPS, and bonds in Jaipur. Expert investment guidance tailored to your goals and risk appetite. Free consultation with KUBER360.',
+  alternates: { canonical: 'https://kuber360.in/investments' },
+  openGraph: {
+    title: 'Investments in Jaipur — Mutual Funds, SIP & Wealth Management | KUBER360',
+    description: 'Expert investment planning for mutual funds, SIP, FD, NPS, and bonds. Start your wealth journey today.',
+    url: 'https://kuber360.in/investments',
+    images: [{ url: '/assets/kuber360-og.jpg', width: 1200, height: 630, alt: 'Investments in Jaipur — KUBER360' }],
+  },
+};
 const h = PAGE_HEROES.investments;
 
 export default function InvestmentsPage() {
   return (
     <>
+      <FaqSchema faqs={INVESTMENT_FAQS} />
+      <BreadcrumbSchema crumbs={[{ name: 'Home', url: 'https://kuber360.in' }, { name: 'Investments', url: 'https://kuber360.in/investments' }]} />
       <PageHero {...h} primaryLabel="Start Investing" secondaryLabel="Talk to an Expert" secondaryHref={waLinkFor("Investments")} />
       <section style={{ background: "var(--color-navy-dark)" }}>
         <div className="max-w-7xl mx-auto px-4 lg:px-6 py-8 grid grid-cols-2 lg:grid-cols-4 gap-6">

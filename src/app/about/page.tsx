@@ -4,10 +4,18 @@ import SectionHeader from '@/components/ui/SectionHeader';
 import SectionCTA from '@/components/ui/SectionCTA';
 import WhyChooseGrid from '@/components/ui/WhyChooseGrid';
 import { CORE_VALUES, INDUSTRIES_SERVED, EXPERT_ROLES, PAGE_HEROES } from '@/lib/data';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 
 export const metadata: Metadata = {
-  title: 'About Us',
-  description: 'Learn about KUBER360 Financial Services — our mission, values, expert team and why thousands of clients trust us.',
+  title: 'About KUBER360 — DSA & Financial Services Company in Jaipur, Rajasthan',
+  description: 'KUBER360 is a DSA-based financial services company in Jaipur, Rajasthan. Learn about our mission, values, expert team, and why 5000+ clients trust us for loans, insurance, and investments.',
+  alternates: { canonical: 'https://kuber360.in/about' },
+  openGraph: {
+    title: 'About KUBER360 — Your Trusted Financial Partner in Jaipur',
+    description: 'Learn about KUBER360 — Jaipur\'s trusted DSA with 50+ banking partners and 5000+ happy clients.',
+    url: 'https://kuber360.in/about',
+    images: [{ url: '/assets/kuber360-og.jpg', width: 1200, height: 630, alt: 'About KUBER360 Financial Services' }],
+  },
 };
 
 const h = PAGE_HEROES.about;
@@ -15,6 +23,7 @@ const h = PAGE_HEROES.about;
 export default function AboutPage() {
   return (
     <>
+      <BreadcrumbSchema crumbs={[{ name: 'Home', url: 'https://kuber360.in' }, { name: 'About Us', url: 'https://kuber360.in/about' }]} />
       <PageHero {...h} primaryLabel="Talk to Our Experts" primaryHref="/contact" />
 
       <section className="py-16 lg:py-24" style={{ background: 'var(--color-surface)' }}>

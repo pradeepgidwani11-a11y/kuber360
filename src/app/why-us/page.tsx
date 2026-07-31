@@ -4,13 +4,25 @@ import SectionHeader from "@/components/ui/SectionHeader";
 import SectionCTA from "@/components/ui/SectionCTA";
 import TestimonialCard from "@/components/ui/TestimonialCard";
 import { WHY_US_CARDS, VS_COMPARISON, WHY_CUSTOMERS_RETURN, TESTIMONIALS, HERO_STATS, PAGE_HEROES, GENERAL_WA_LINK } from "@/lib/data";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
-export const metadata: Metadata = { title: "Why KUBER360?", description: "Why thousands of clients choose KUBER360 — expert guidance, 50+ banking partners, zero hidden charges." };
+export const metadata: Metadata = {
+  title: 'Why Choose KUBER360? — Trusted DSA in Jaipur with 5000+ Happy Clients',
+  description: 'Discover why 5000+ clients trust KUBER360. 50+ banking partners, zero hidden charges, expert advisors, quick processing, and dedicated post-service support in Jaipur, Rajasthan.',
+  alternates: { canonical: 'https://kuber360.in/why-us' },
+  openGraph: {
+    title: 'Why Choose KUBER360? — Jaipur\'s Most Trusted Financial DSA',
+    description: '5000+ happy clients, 50+ bank partners, zero hidden charges. See why KUBER360 is Jaipur\'s top DSA.',
+    url: 'https://kuber360.in/why-us',
+    images: [{ url: '/assets/kuber360-og.jpg', width: 1200, height: 630, alt: 'Why KUBER360 — Trusted Financial Partner' }],
+  },
+};
 const h = PAGE_HEROES["why-us"];
 
 export default function WhyUsPage() {
   return (
     <>
+      <BreadcrumbSchema crumbs={[{ name: 'Home', url: 'https://kuber360.in' }, { name: 'Why KUBER360', url: 'https://kuber360.in/why-us' }]} />
       <PageHero {...h} primaryLabel="Get Free Consultation" secondaryLabel="Chat on WhatsApp" secondaryHref={GENERAL_WA_LINK} />
       <section style={{ background: "var(--color-navy-dark)" }}>
         <div className="max-w-7xl mx-auto px-4 lg:px-6 py-8 grid grid-cols-2 lg:grid-cols-4 gap-6">

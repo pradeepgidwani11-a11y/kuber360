@@ -5,13 +5,25 @@ import SectionHeader from "@/components/ui/SectionHeader";
 import SectionCTA from "@/components/ui/SectionCTA";
 import WhyChooseGrid from "@/components/ui/WhyChooseGrid";
 import { SERVICES_CATEGORIES, WHY_CHOOSE_SERVICES, PAGE_HEROES } from "@/lib/data";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
-export const metadata: Metadata = { title: "Our Services", description: "Explore all financial services offered by KUBER360." };
+export const metadata: Metadata = {
+  title: 'Financial Services in Jaipur — Loans, Insurance, Investments & Tax | KUBER360',
+  description: 'Explore all financial services by KUBER360 in Jaipur — home loans, personal loans, business loans, credit cards, insurance, mutual funds, ITR filing, GST registration, and more.',
+  alternates: { canonical: 'https://kuber360.in/services' },
+  openGraph: {
+    title: 'All Financial Services in Jaipur | KUBER360',
+    description: 'One-stop financial services in Jaipur — loans, credit cards, insurance, investments, tax & GST, and business registration.',
+    url: 'https://kuber360.in/services',
+    images: [{ url: '/assets/kuber360-og.jpg', width: 1200, height: 630, alt: 'Financial Services — KUBER360 Jaipur' }],
+  },
+};
 const h = PAGE_HEROES.services;
 
 export default function ServicesPage() {
   return (
     <>
+      <BreadcrumbSchema crumbs={[{ name: 'Home', url: 'https://kuber360.in' }, { name: 'Services', url: 'https://kuber360.in/services' }]} />
       <PageHero {...h} primaryLabel="Get Free Consultation" secondaryLabel="View All Products" secondaryHref="#services-grid" />
       <section id="services-grid" className="py-16 lg:py-24" style={{ background: "var(--color-surface)" }}>
         <div className="max-w-7xl mx-auto px-4 lg:px-6">

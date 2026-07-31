@@ -7,13 +7,27 @@ import ProcessSteps from "@/components/ui/ProcessSteps";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import TestimonialCard from "@/components/ui/TestimonialCard";
 import { LOAN_CATEGORIES, LOAN_ELIGIBILITY, LOAN_DOCS_SALARIED, LOAN_DOCS_SELF_EMPLOYED, LOAN_PROCESS_STEPS, LOAN_FAQS, WHY_CHOOSE_LOANS, TESTIMONIALS, PAGE_HEROES, waLinkFor } from "@/lib/data";
+import FaqSchema from "@/components/seo/FaqSchema";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
-export const metadata: Metadata = { title: "Loan Products", description: "Personal, Business, Home, Car, Education and MSME loans with expert guidance from KUBER360." };
+export const metadata: Metadata = {
+  title: 'Loans in Jaipur — Home, Personal, Business & Car Loan | KUBER360',
+  description: 'Get the best home loan, personal loan, business loan, car loan, and MSME loan in Jaipur. Compare rates from 50+ banks & NBFCs. Free eligibility check. Apply with KUBER360.',
+  alternates: { canonical: 'https://kuber360.in/loans' },
+  openGraph: {
+    title: 'Loans in Jaipur — Home, Personal, Business & Car Loan | KUBER360',
+    description: 'Compare loan offers from 50+ banks. Best rates, quick processing, expert guidance. Free consultation.',
+    url: 'https://kuber360.in/loans',
+    images: [{ url: '/assets/kuber360-og.jpg', width: 1200, height: 630, alt: 'Loans in Jaipur — KUBER360' }],
+  },
+};
 const h = PAGE_HEROES.loans;
 
 export default function LoansPage() {
   return (
     <>
+      <FaqSchema faqs={LOAN_FAQS} />
+      <BreadcrumbSchema crumbs={[{ name: 'Home', url: 'https://kuber360.in' }, { name: 'Loans', url: 'https://kuber360.in/loans' }]} />
       <PageHero {...h} primaryLabel="Check Eligibility" secondaryLabel="Talk to a Loan Expert" secondaryHref={waLinkFor("Loans")} />
       <section className="py-16 lg:py-24" style={{ background: "var(--color-navy)" }}>
         <div className="max-w-7xl mx-auto px-4 lg:px-6">

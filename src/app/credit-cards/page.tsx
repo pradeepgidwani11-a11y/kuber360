@@ -6,13 +6,27 @@ import WhyChooseGrid from "@/components/ui/WhyChooseGrid";
 import ProcessSteps from "@/components/ui/ProcessSteps";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import { CARD_CATEGORIES, CARD_HELP_STEPS, CARD_COMPARISON_COLS, CARD_COMPARISON_ROWS, CARD_BENEFITS, CARD_ELIGIBILITY, CARD_DOCS_SALARIED, CARD_DOCS_SELF_EMPLOYED, CARD_FAQS, WHY_CHOOSE_CARDS, PAGE_HEROES, waLinkFor } from "@/lib/data";
+import FaqSchema from "@/components/seo/FaqSchema";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
-export const metadata: Metadata = { title: "Credit Cards", description: "Compare lifetime free, rewards, cashback, travel and premium credit cards with expert guidance from KUBER360." };
+export const metadata: Metadata = {
+  title: 'Best Credit Cards in India — Cashback, Travel & Lifetime Free | KUBER360',
+  description: 'Apply for the best credit cards in India — cashback cards, travel cards, rewards cards, and lifetime free cards. Expert comparison and instant application with KUBER360.',
+  alternates: { canonical: 'https://kuber360.in/credit-cards' },
+  openGraph: {
+    title: 'Best Credit Cards in India — Compare & Apply Online | KUBER360',
+    description: 'Compare cashback, travel, rewards, and lifetime free credit cards. Apply online with expert guidance.',
+    url: 'https://kuber360.in/credit-cards',
+    images: [{ url: '/assets/kuber360-og.jpg', width: 1200, height: 630, alt: 'Credit Cards — KUBER360' }],
+  },
+};
 const h = PAGE_HEROES["credit-cards"];
 
 export default function CreditCardsPage() {
   return (
     <>
+      <FaqSchema faqs={CARD_FAQS} />
+      <BreadcrumbSchema crumbs={[{ name: 'Home', url: 'https://kuber360.in' }, { name: 'Credit Cards', url: 'https://kuber360.in/credit-cards' }]} />
       <PageHero {...h} primaryLabel="Compare Credit Cards" secondaryLabel="Talk to a Card Expert" secondaryHref={waLinkFor("Credit Card")} />
       <section className="py-16 lg:py-24" style={{ background: "var(--color-surface)" }}>
         <div className="max-w-7xl mx-auto px-4 lg:px-6">

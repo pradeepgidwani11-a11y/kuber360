@@ -6,13 +6,27 @@ import ProcessSteps from "@/components/ui/ProcessSteps";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import { CONTACT_INFO, CONTACT_SERVICES_ICONS, WHY_CONTACT_KUBER, HOW_WE_RESPOND_STEPS, CONTACT_FAQS, PAGE_HEROES, GENERAL_WA_LINK, CALLBACK_WA_LINK } from "@/lib/data";
 import ContactForm from "@/components/contact/ContactForm";
+import FaqSchema from "@/components/seo/FaqSchema";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
-export const metadata: Metadata = { title: "Contact Us", description: "Get in touch with KUBER360 Financial Services. Free consultation for loans, insurance, investments and tax services." };
+export const metadata: Metadata = {
+  title: 'Contact KUBER360 — Free Financial Consultation in Jaipur | +91 87420 19250',
+  description: 'Contact KUBER360 Financial Services in Jaipur for free consultation on loans, insurance, investments, and tax services. Call +91 87420 19250 or email info@kuber360.in.',
+  alternates: { canonical: 'https://kuber360.in/contact' },
+  openGraph: {
+    title: 'Contact KUBER360 — Free Financial Consultation in Jaipur',
+    description: 'Reach out to our expert advisors for loans, insurance, investments, or tax help. Free consultation.',
+    url: 'https://kuber360.in/contact',
+    images: [{ url: '/assets/kuber360-og.jpg', width: 1200, height: 630, alt: 'Contact KUBER360 Financial Services' }],
+  },
+};
 const h = PAGE_HEROES.contact;
 
 export default function ContactPage() {
   return (
     <>
+      <FaqSchema faqs={CONTACT_FAQS} />
+      <BreadcrumbSchema crumbs={[{ name: 'Home', url: 'https://kuber360.in' }, { name: 'Contact', url: 'https://kuber360.in/contact' }]} />
       <PageHero {...h} primaryLabel="Chat on WhatsApp" primaryHref={GENERAL_WA_LINK} secondaryLabel="Request Callback" secondaryHref={CALLBACK_WA_LINK} />
       <section className="py-16 lg:py-24" style={{ background: "var(--color-surface)" }}>
         <div className="max-w-7xl mx-auto px-4 lg:px-6">

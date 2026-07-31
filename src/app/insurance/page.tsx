@@ -7,13 +7,27 @@ import ProcessSteps from "@/components/ui/ProcessSteps";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import TestimonialCard from "@/components/ui/TestimonialCard";
 import { INSURANCE_CATEGORIES, INSURANCE_HOW_STEPS, INSURANCE_BENEFITS, INSURANCE_DOCS, INSURANCE_FAQS, INSURANCE_TESTIMONIALS, WHY_CHOOSE_INSURANCE, PAGE_HEROES, waLinkFor } from "@/lib/data";
+import FaqSchema from "@/components/seo/FaqSchema";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 
-export const metadata: Metadata = { title: "Insurance", description: "Compare health, life, motor and business insurance plans with expert guidance from KUBER360." };
+export const metadata: Metadata = {
+  title: 'Insurance in Jaipur — Life, Health, Motor & Business Insurance | KUBER360',
+  description: 'Compare and buy the best life insurance, health insurance, motor insurance, and general insurance plans in Jaipur. Expert advice, quick issuance. Free consultation with KUBER360.',
+  alternates: { canonical: 'https://kuber360.in/insurance' },
+  openGraph: {
+    title: 'Insurance in Jaipur — Life, Health & Motor Insurance | KUBER360',
+    description: 'Compare insurance plans from top insurers. Expert guidance, quick issuance, full claim support.',
+    url: 'https://kuber360.in/insurance',
+    images: [{ url: '/assets/kuber360-og.jpg', width: 1200, height: 630, alt: 'Insurance in Jaipur — KUBER360' }],
+  },
+};
 const h = PAGE_HEROES.insurance;
 
 export default function InsurancePage() {
   return (
     <>
+      <FaqSchema faqs={INSURANCE_FAQS} />
+      <BreadcrumbSchema crumbs={[{ name: 'Home', url: 'https://kuber360.in' }, { name: 'Insurance', url: 'https://kuber360.in/insurance' }]} />
       <PageHero {...h} primaryLabel="Compare Plans" secondaryLabel="Talk to Insurance Expert" secondaryHref={waLinkFor("Insurance")} />
       <section className="py-16 lg:py-24" style={{ background: "var(--color-surface)" }}>
         <div className="max-w-7xl mx-auto px-4 lg:px-6">
